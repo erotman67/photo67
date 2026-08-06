@@ -18,6 +18,7 @@ from reading `photos.json`, so the feed would come up empty.
 | `index.html` | Page shell. Fixed layout + the editable copy blocks. |
 | `styles.css` | All styling. Palette and type from the design spec. |
 | `app.js` | Router, justified-row maths, lightbox. |
+| `wrangler.json` | Tells Cloudflare to serve the root as static assets. |
 | `photos.json` | **The manifest.** Every photograph and album lives here. |
 | `photos/<album>/` | The originals Elad uploads. **Folders are albums.** |
 | `derived/` | Generated webp, mirroring `photos/`. Never edit by hand. |
@@ -56,6 +57,19 @@ sweeps its derivatives on the next run. Re-running changes nothing, so it's safe
 to trigger by hand from the Actions tab.
 
 To run it locally: `npm install sharp exifr && node scripts/build-manifest.mjs`
+
+## Routing
+
+Real paths, no `#`: `/`, `/albums`, `/albums/<slug>`, `/about`, `/contact`.
+
+There's still only one HTML file. `not_found_handling: single-page-application`
+in `wrangler.json` makes Cloudflare serve `index.html` for any path that isn't a
+real file, and `app.js` reads `location.pathname` to decide what to render.
+In-site links are intercepted so navigation never reloads; modifier-clicks,
+new-tab and `mailto:` are left to the browser. Each route sets its own
+`document.title`. Unknown paths fall back to the feed.
+
+`serve.ps1` mimics the same fallback so local preview matches production.
 
 ## Changing things
 

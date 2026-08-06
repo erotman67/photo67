@@ -146,7 +146,7 @@
       var cover = ps[0];
 
       var a = document.createElement('a');
-      a.href = '#/album/' + album.slug;
+      a.href = '/albums/' + encodeURIComponent(album.slug);
 
       var img = makeImg(cover, isNarrow() ? '100vw' : '33vw', album.title);
 
@@ -191,8 +191,19 @@
   }
 
   /* ======================================================================
-     Router — hash based, so it works on any static host with no rewrites
+     Router — real paths: /, /albums, /albums/<slug>, /about, /contact
+
+     There is only one HTML file. Cloudflare is configured to serve it for
+     any path that isn't a real file, and this router reads location.pathname
+     to decide what to render. Links are intercepted so navigation never
+     reloads the page, and Back/Forward still work.
      ====================================================================== */
+
+  var SITE = 'Photo 67';
+
+  function setTitle(part) {
+    document.title = part ? part + ' — ' + SITE : SITE;
+  }
 
   function show(view) {
     $$('[data-view]').forEach(function (s) { s.hidden = s.getAttribute('data-view') !== view; });
@@ -209,26 +220,68 @@
     });
   }
 
-  function route() {
-    closeLightbox();
-    var hash = location.hash || '#/';
+  /* "/albums/water/" and "/albums/water" are the same page */
+  function currentPath() {
+    var p = location.pathname.replace(/\/+$/, '');
+    return p === '' ? '/' : p;
+  }
 
-    if (hash.indexOf('#/album/') === 0) {
-      renderAlbum(hash.slice(8));
+  function route(keepScroll) {
+    closeLightbox();
+    var path = currentPath();
+
+    if (path.indexOf('/albums/') === 0) {
+      var slug = decodeURIComponent(path.slice(8));
+      var album = MANIFEST.albums.filter(function (a) { return a.slug === slug; })[0];
+      renderAlbum(slug);
       show('album');
-    } else if (hash === '#/albums') {
+      setTitle(album ? album.title : 'Album');
+    } else if (path === '/albums') {
       renderAlbums();
       show('albums');
-    } else if (hash === '#/about') {
+      setTitle('Albums');
+    } else if (path === '/about') {
       renderAbout();
       show('about');
-    } else if (hash === '#/contact') {
+      setTitle('About');
+    } else if (path === '/contact') {
       show('contact');
+      setTitle('Contact');
     } else {
+      /* unknown paths fall back to the feed rather than a dead end */
       renderHome();
       show('home');
+      setTitle('');
     }
-    window.scrollTo(0, 0);
+    if (!keepScroll) window.scrollTo(0, 0);
+  }
+
+  function navigate(path) {
+    if (path === currentPath()) return;
+    history.pushState(null, '', path);
+    route();
+  }
+
+  /* Intercept in-site links. Modifier-clicks, middle-clicks, new-tab and
+     external links are all left to the browser. */
+  function wireLinks() {
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+      var a = e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      if (a.target && a.target !== '_self') return;
+      if (a.hasAttribute('download')) return;
+
+      var href = a.getAttribute('href');
+      if (!href || href.charAt(0) !== '/') return;   // mailto:, http://, #…
+
+      e.preventDefault();
+      navigate(href);
+    });
+
+    window.addEventListener('popstate', function () { route(); });
   }
 
   /* ======================================================================
@@ -315,7 +368,9 @@
      ====================================================================== */
 
   function reflowOnBreakpointChange() {
-    var handler = function () { route(); };
+    /* re-render so figure flex-basis switches between one-per-row and
+       justified rows; keep the reader where they were */
+    var handler = function () { route(true); };
     if (narrowMQ.addEventListener) narrowMQ.addEventListener('change', handler);
     else narrowMQ.addListener(handler);
   }
@@ -323,8 +378,8 @@
   function start(manifest) {
     MANIFEST = manifest;
     wireLightbox();
+    wireLinks();
     reflowOnBreakpointChange();
-    window.addEventListener('hashchange', route);
     route();
   }
 
