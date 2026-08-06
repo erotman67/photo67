@@ -114,6 +114,8 @@ a:hover { color: var(--ink-quiet); }
   max-width: 32em;
   text-wrap: pretty;
 }
+/* consecutive paragraphs get one line of air, nothing more */
+.prose + .prose { margin-top: 1.1em; }
 .label {
   font-size: 11px;
   letter-spacing: 0.14em;
