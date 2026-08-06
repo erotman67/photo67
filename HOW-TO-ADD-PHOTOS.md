@@ -205,9 +205,13 @@ showed before. Check the **Actions** tab and it'll tell you which line to fix.
 
 ## Changing the words on the site
 
-The About paragraph, the Contact paragraph, and the line at the top of the home
-page all live in **`index.html`**. Look for the parts marked `data-editable` —
+The About paragraphs, the Contact paragraph, and the line at the top of the home
+page all live in **`template.html`**. Look for the parts marked `data-editable` —
 those are yours to change. Leave everything else alone.
+
+**Edit `template.html`, not `index.html`.** The robot builds `index.html` and the
+other pages out of the template every time, so anything you type straight into
+them gets wiped on the next upload.
 
 ---
 

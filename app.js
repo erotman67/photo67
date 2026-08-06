@@ -27,10 +27,11 @@
      derived/ mirrors that structure exactly. */
   function baseName(file) { return file.replace(/\.[^.]+$/, ''); }
 
-  function derived(file, w) { return 'derived/' + baseName(file) + '-' + w + '.webp'; }
+  /* Root-relative: the same markup has to work at / and at /albums/water. */
+  function derived(file, w) { return '/derived/' + baseName(file) + '-' + w + '.webp'; }
 
   function src(photo) {
-    if (!photo.widths || !photo.widths.length) return 'photos/' + photo.file;
+    if (!photo.widths || !photo.widths.length) return '/photos/' + photo.file;
     /* default to the largest step at or below 1400 — a sensible first paint */
     var pick = photo.widths.filter(function (w) { return w <= 1400; }).pop();
     return derived(photo.file, pick || photo.widths[0]);
@@ -38,7 +39,7 @@
 
   function srcset(photo) {
     if (!photo.widths || !photo.widths.length) {
-      return 'photos/' + photo.file + ' ' + photo.w + 'w';
+      return '/photos/' + photo.file + ' ' + photo.w + 'w';
     }
     return photo.widths.map(function (w) {
       return derived(photo.file, w) + ' ' + w + 'w';
@@ -393,7 +394,7 @@
     main.appendChild(p);
   }
 
-  fetch('photos.json', { cache: 'no-cache' })
+  fetch('/photos.json', { cache: 'no-cache' })
     .then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();

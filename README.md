@@ -15,7 +15,9 @@ from reading `photos.json`, so the feed would come up empty.
 
 | File | What it is |
 |---|---|
-| `index.html` | Page shell. Fixed layout + the editable copy blocks. |
+| `template.html` | **The source page.** Fixed layout + editable copy. Edit this. |
+| `index.html`, `about/`, `albums/`, `contact/` | **Generated.** Don't edit. |
+| `sitemap.xml`, `robots.txt` | Generated. |
 | `styles.css` | All styling. Palette and type from the design spec. |
 | `app.js` | Router, justified-row maths, lightbox. |
 | `wrangler.json` | Tells Cloudflare to serve the root as static assets. |
@@ -23,6 +25,7 @@ from reading `photos.json`, so the feed would come up empty.
 | `photos/<album>/` | The originals Elad uploads. **Folders are albums.** |
 | `derived/` | Generated webp, mirroring `photos/`. Never edit by hand. |
 | `scripts/build-manifest.mjs` | The resize + EXIF + manifest builder. |
+| `scripts/prerender.mjs` | Turns `template.html` into one real file per page. |
 | `.github/workflows/` | The Action that runs it on every upload. |
 | `HOW-TO-ADD-PHOTOS.md` | Elad's guide. Written for him, not for developers. |
 | `serve.ps1`, `preview.bat` | Local preview only. Not part of the site. |
@@ -58,18 +61,27 @@ to trigger by hand from the Actions tab.
 
 To run it locally: `npm install sharp exifr && node scripts/build-manifest.mjs`
 
-## Routing
+## Routing and pre-rendering
 
 Real paths, no `#`: `/`, `/albums`, `/albums/<slug>`, `/about`, `/contact`.
 
-There's still only one HTML file. `not_found_handling: single-page-application`
-in `wrangler.json` makes Cloudflare serve `index.html` for any path that isn't a
-real file, and `app.js` reads `location.pathname` to decide what to render.
-In-site links are intercepted so navigation never reloads; modifier-clicks,
-new-tab and `mailto:` are left to the browser. Each route sets its own
-`document.title`. Unknown paths fall back to the feed.
+Each of those is a **real HTML file**, generated from `template.html` by
+`scripts/prerender.mjs`, carrying its own `<title>`, description, canonical URL,
+Open Graph tags and — for the photograph pages — the `<figure>` markup already
+written in. A crawler or a link preview sees the finished page without running
+any JavaScript.
 
-`serve.ps1` mimics the same fallback so local preview matches production.
+`app.js` then takes over for navigation: it reads `location.pathname`, renders
+the same content into the same containers, and intercepts in-site links so
+moving around never reloads. Modifier-clicks, new-tab and `mailto:` are left to
+the browser. Unknown paths fall back to the feed via
+`not_found_handling: single-page-application` in `wrangler.json`.
+
+All asset paths are root-relative (`/app.js`, `/derived/…`) so the same markup
+works at `/` and at `/albums/water`. Deliberately no `<base>` tag — that would
+make local preview fetch from the live site.
+
+`serve.ps1` mimics Cloudflare's fallback so local preview matches production.
 
 ## Changing things
 

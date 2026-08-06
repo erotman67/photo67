@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- ==========================================================================
+     THIS IS THE SOURCE FILE. Edit this one.
+
+     scripts/prerender.mjs turns it into index.html, about/index.html,
+     albums/index.html and one file per album — each with its own title and
+     its photographs already written into the HTML, so search engines and
+     link previews see real content without running any JavaScript.
+
+     Don't edit those generated files; the next build overwrites them.
+     ========================================================================== -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table, Late Afternoon — Photo 67</title>
+<meta name="description" content="Glass and drinks, shot into the light on the same table.">
+<meta name="theme-color" content="#FBFAF8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="canonical" href="https://photo67.com/albums/table">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Photo 67">
+<meta property="og:title" content="Table, Late Afternoon — Photo 67">
+<meta property="og:description" content="Glass and drinks, shot into the light on the same table.">
+<meta property="og:url" content="https://photo67.com/albums/table">
+<meta property="og:image" content="https://photo67.com/derived/table/coffee-glass-1400.webp">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="934">
+<meta property="og:image:alt" content="Hafuch — photograph by Elad">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<!-- ==========================================================================
+     FIXED LAYOUT — header, wordmark, nav, footer, grids and lightbox.
+     Not editor-touchable. Editable copy is marked [data-editable] below.
+     Photographs, albums, titles and dates all come from photos.json.
+     ========================================================================== -->
+
+<div class="page">
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="wordmark" href="/">Photo 67</a>
+      <nav class="nav">
+        <a href="/"        data-nav="home">Work</a>
+        <a href="/albums"  data-nav="albums">Albums<span class="underline"></span></a>
+        <a href="/about"   data-nav="about">About</a>
+        <a href="/contact" data-nav="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- ---------- Home: continuous feed, newest first ---------- -->
+    <section data-view="home" hidden>
+      <p class="standfirst" data-editable="intro">Recent photographs, newest first.</p>
+      <div class="feed" data-feed="home"></div>
+    </section>
+
+    <!-- ---------- Albums index ---------- -->
+    <section data-view="albums" hidden>
+      <h1 class="title">Albums</h1>
+      <div class="albums" data-albums></div>
+    </section>
+
+    <!-- ---------- Album detail ---------- -->
+    <section data-view="album">
+      <a class="backlink" href="/albums">&larr; Albums</a>
+      <h1 class="title album__title" data-album-title>Table, Late Afternoon</h1>
+      <p class="standfirst album__summary" data-editable="album-summary" data-album-summary>Glass and drinks, shot into the light on the same table.</p>
+      <div class="feed" data-feed="album"><figure style="flex-grow:1.499;flex-basis:450px"><img src="/derived/table/coffee-glass-1400.webp" srcset="/derived/table/coffee-glass-480.webp 480w, /derived/table/coffee-glass-900.webp 900w, /derived/table/coffee-glass-1400.webp 1400w, /derived/table/coffee-glass-2000.webp 2000w, /derived/table/coffee-glass-2048.webp 2048w" sizes="(min-width:1400px) 45vw, 60vw" width="2048" height="1366" loading="lazy" decoding="async" alt="Hafuch — photograph by Elad"><figcaption>Hafuch  ·  April 11, 2026</figcaption></figure><figure style="flex-grow:1.499;flex-basis:450px"><img src="/derived/table/juice-glass-1400.webp" srcset="/derived/table/juice-glass-480.webp 480w, /derived/table/juice-glass-900.webp 900w, /derived/table/juice-glass-1400.webp 1400w, /derived/table/juice-glass-2000.webp 2000w, /derived/table/juice-glass-2048.webp 2048w" sizes="(min-width:1400px) 45vw, 60vw" width="2048" height="1366" loading="lazy" decoding="async" alt="Straw — photograph by Elad"><figcaption>Straw  ·  April 11, 2026</figcaption></figure></div>
+    </section>
+
+    <!-- ---------- About ---------- -->
+    <section data-view="about" hidden>
+      <div class="about">
+        <div data-portrait>
+          <!-- Replaced by the portrait once "portrait" is set in photos.json -->
+          <div class="portrait-placeholder" data-editable="about-portrait">
+            <span>portrait or self-portrait — drop in here</span>
+          </div>
+        </div>
+        <div>
+          <h1 class="title">About</h1>
+          <p class="prose" data-editable="about-text">I'm Elad, a photographer from Israel. I shoot close up and mostly outdoors — water on a leaf, a coin in the rain, a wasp that stayed still for one frame. What I'm really after is light: what it does to glass, to a drop of water, to the sky behind a mast at the end of the day. I take the photographs and edit them myself.</p>
+          <p class="prose" data-editable="about-grandfather">My grandfather is the reason I started. He put a camera in my hands, and he still spends afternoons with me going through what I've shot — why one frame works and the one beside it doesn't. He's the one teaching me to treat this as something to get good at, not just something I like doing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- Contact: an address, never a form ---------- -->
+    <section data-view="contact" hidden>
+      <div class="contact">
+        <h1 class="title">Contact</h1>
+        <p class="prose contact__text" data-editable="contact-text">For prints, club submissions, or anything else, email is best. Replies usually come in the evening.</p>
+        <a class="contact__email" data-editable="contact-email" href="mailto:info@photo67.com">info@photo67.com</a>
+        <p class="label contact__place">Tel Aviv, Israel</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>&copy; 2026 Elad</span>
+    <a href="/contact">Email</a>
+  </footer>
+
+</div>
+
+<!-- ---------- Lightbox ---------- -->
+<div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Photograph">
+  <img data-lb-img alt="">
+  <button class="lb-close" data-lb-close aria-label="Close">&#10005;</button>
+  <button class="lb-prev"  data-lb-prev  aria-label="Previous">&lsaquo;</button>
+  <button class="lb-next"  data-lb-next  aria-label="Next">&rsaquo;</button>
+  <div class="lb-bar">
+    <span class="lb-meta" data-lb-meta></span>
+    <span class="lb-counter" data-lb-counter></span>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

@@ -4,6 +4,7 @@
 .git
 .github
 scripts
+template.html
 node_modules
 wrangler.json
 .assetsignore
