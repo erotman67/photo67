@@ -1,0 +1,9 @@
+# Files that live in the repo but shouldn't be served as part of the website.
+.github
+scripts
+node_modules
+wrangler.json
+.assetsignore
+.gitignore
+README.md
+HOW-TO-ADD-PHOTOS.md
