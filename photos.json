@@ -1,0 +1,367 @@
+{
+  "albums": [
+    {
+      "slug": "water",
+      "title": "Water Holds Light",
+      "summary": "Droplets, close up. Most of these are from the garden after watering, before the sun got high."
+    },
+    {
+      "slug": "green",
+      "title": "Green Hours",
+      "summary": "Late afternoon at ground level, and whatever was flying."
+    },
+    {
+      "slug": "dogs",
+      "title": "The Dogs",
+      "summary": "Two dogs who do not sit still, photographed indoors with whatever light was left."
+    },
+    {
+      "slug": "sea",
+      "title": "Jaffa and the Sea",
+      "summary": "The old port, the clock tower, and the beach after dark."
+    },
+    {
+      "slug": "table",
+      "title": "Table, Late Afternoon",
+      "summary": "Glass and drinks, shot into the light on the same table."
+    },
+    {
+      "slug": "car",
+      "title": "One Model Car",
+      "summary": "A borrowed model, front and back, lit with one lamp on a plain surface."
+    }
+  ],
+  "photos": [
+    {
+      "id": "p02",
+      "album": "water",
+      "file": "water/blade-droplets.jpg",
+      "w": 1203,
+      "h": 1307,
+      "widths": [
+        480,
+        900,
+        1203
+      ],
+      "title": "Blade, evening",
+      "date": "2026-07-19",
+      "camera": ""
+    },
+    {
+      "id": "p01",
+      "album": "water",
+      "file": "water/dew-blade.jpg",
+      "w": 1179,
+      "h": 1555,
+      "widths": [
+        480,
+        900,
+        1179
+      ],
+      "title": "Nine drops",
+      "date": "2026-07-19",
+      "camera": ""
+    },
+    {
+      "id": "p03",
+      "album": "water",
+      "file": "water/dew-gold.jpg",
+      "w": 1122,
+      "h": 1402,
+      "widths": [
+        480,
+        900,
+        1122
+      ],
+      "title": "Gold behind",
+      "date": "2026-07-12",
+      "camera": ""
+    },
+    {
+      "id": "p12",
+      "album": "dogs",
+      "file": "dogs/dog-smiling.jpg",
+      "w": 1366,
+      "h": 2048,
+      "widths": [
+        480,
+        900,
+        1366
+      ],
+      "title": "On the sofa",
+      "date": "2026-07-02",
+      "camera": ""
+    },
+    {
+      "id": "p11",
+      "album": "dogs",
+      "file": "dogs/dog-tongue.jpg",
+      "w": 1366,
+      "h": 2048,
+      "widths": [
+        480,
+        900,
+        1366
+      ],
+      "title": "Tongue",
+      "date": "2026-07-02",
+      "camera": ""
+    },
+    {
+      "id": "p04",
+      "album": "water",
+      "file": "water/coin-droplets.jpg",
+      "w": 1459,
+      "h": 1078,
+      "widths": [
+        480,
+        900,
+        1400,
+        1459
+      ],
+      "title": "Ten agorot, wet",
+      "date": "2026-06-28",
+      "camera": ""
+    },
+    {
+      "id": "p13",
+      "album": "dogs",
+      "file": "dogs/dog-washing.jpg",
+      "w": 1366,
+      "h": 2048,
+      "widths": [
+        480,
+        900,
+        1366
+      ],
+      "title": "Washing",
+      "date": "2026-06-21",
+      "camera": ""
+    },
+    {
+      "id": "p05",
+      "album": "water",
+      "file": "water/bottle-sunset.jpg",
+      "w": 2048,
+      "h": 1372,
+      "widths": [
+        480,
+        900,
+        1400,
+        2000,
+        2048
+      ],
+      "title": "Bottle at sundown",
+      "date": "2026-06-14",
+      "camera": ""
+    },
+    {
+      "id": "p14",
+      "album": "sea",
+      "file": "sea/beach-night.jpg",
+      "w": 1206,
+      "h": 783,
+      "widths": [
+        480,
+        900,
+        1206
+      ],
+      "title": "Beach, after dark",
+      "date": "2026-06-07",
+      "camera": ""
+    },
+    {
+      "id": "p06",
+      "album": "green",
+      "file": "green/grass-flowers.jpg",
+      "w": 2048,
+      "h": 1372,
+      "widths": [
+        480,
+        900,
+        1400,
+        2000,
+        2048
+      ],
+      "title": "Ground level",
+      "date": "2026-05-30",
+      "camera": ""
+    },
+    {
+      "id": "p08",
+      "album": "green",
+      "file": "green/blade-dark.jpg",
+      "w": 945,
+      "h": 2048,
+      "widths": [
+        480,
+        900,
+        945
+      ],
+      "title": "One blade, dark",
+      "date": "2026-05-24",
+      "camera": ""
+    },
+    {
+      "id": "p07",
+      "album": "green",
+      "file": "green/grass-spike.jpg",
+      "w": 945,
+      "h": 2048,
+      "widths": [
+        480,
+        900,
+        945
+      ],
+      "title": "Seed head",
+      "date": "2026-05-24",
+      "camera": ""
+    },
+    {
+      "id": "p09",
+      "album": "green",
+      "file": "green/jacaranda.jpg",
+      "w": 2048,
+      "h": 1366,
+      "widths": [
+        480,
+        900,
+        1400,
+        2000,
+        2048
+      ],
+      "title": "Jacaranda",
+      "date": "2026-05-17",
+      "camera": ""
+    },
+    {
+      "id": "p16",
+      "album": "sea",
+      "file": "sea/clock-tower.jpg",
+      "w": 2048,
+      "h": 1366,
+      "widths": [
+        480,
+        900,
+        1400,
+        2000,
+        2048
+      ],
+      "title": "Clock tower",
+      "date": "2026-05-10",
+      "camera": ""
+    },
+    {
+      "id": "p15",
+      "album": "sea",
+      "file": "sea/lantern-sail.jpg",
+      "w": 1165,
+      "h": 1798,
+      "widths": [
+        480,
+        900,
+        1165
+      ],
+      "title": "Lantern, one sail",
+      "date": "2026-05-10",
+      "camera": ""
+    },
+    {
+      "id": "p10",
+      "album": "green",
+      "file": "green/wasp.jpg",
+      "w": 945,
+      "h": 2048,
+      "widths": [
+        480,
+        900,
+        945
+      ],
+      "title": "Wasp, landing",
+      "date": "2026-05-03",
+      "camera": ""
+    },
+    {
+      "id": "p17",
+      "album": "sea",
+      "file": "sea/harbour-sunset.jpg",
+      "w": 1206,
+      "h": 1795,
+      "widths": [
+        480,
+        900,
+        1206
+      ],
+      "title": "Masts",
+      "date": "2026-04-26",
+      "camera": ""
+    },
+    {
+      "id": "p18",
+      "album": "table",
+      "file": "table/coffee-glass.jpg",
+      "w": 2048,
+      "h": 1366,
+      "widths": [
+        480,
+        900,
+        1400,
+        2000,
+        2048
+      ],
+      "title": "Hafuch",
+      "date": "2026-04-11",
+      "camera": ""
+    },
+    {
+      "id": "p19",
+      "album": "table",
+      "file": "table/juice-glass.jpg",
+      "w": 2048,
+      "h": 1366,
+      "widths": [
+        480,
+        900,
+        1400,
+        2000,
+        2048
+      ],
+      "title": "Straw",
+      "date": "2026-04-11",
+      "camera": ""
+    },
+    {
+      "id": "p20",
+      "album": "car",
+      "file": "car/toy-car-front.jpg",
+      "w": 1770,
+      "h": 1416,
+      "widths": [
+        480,
+        900,
+        1400,
+        1770
+      ],
+      "title": "Front",
+      "date": "2026-03-28",
+      "camera": ""
+    },
+    {
+      "id": "p21",
+      "album": "car",
+      "file": "car/toy-car.jpg",
+      "w": 1934,
+      "h": 1165,
+      "widths": [
+        480,
+        900,
+        1400,
+        1934
+      ],
+      "title": "Rear wing",
+      "date": "2026-03-28",
+      "camera": ""
+    }
+  ],
+  "portrait": null
+}

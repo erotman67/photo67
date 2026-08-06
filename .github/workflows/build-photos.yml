@@ -1,0 +1,58 @@
+name: Build photos
+
+# Runs whenever Elad adds or removes a photograph. Resizes each one, reads the
+# camera data out of it, and rewrites photos.json — then commits the result
+# back, which is what triggers the Cloudflare Pages deploy.
+
+on:
+  push:
+    paths:
+      - 'photos/**'
+      - 'scripts/build-manifest.mjs'
+      - '.github/workflows/build-photos.yml'
+  workflow_dispatch:
+
+# Needed so the job can push its own commit back to the branch.
+permissions:
+  contents: write
+
+# If Elad uploads twice in quick succession, let the second run win.
+concurrency:
+  group: build-photos
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install image tools
+        run: npm install --no-save sharp exifr
+
+      - name: Resize photographs and rebuild photos.json
+        run: node scripts/build-manifest.mjs
+
+      - name: Commit the results
+        run: |
+          git config user.name  "photo67 bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add derived photos.json
+
+          if git diff --cached --quiet; then
+            echo "Nothing changed — no commit needed."
+            exit 0
+          fi
+
+          git commit -m "Rebuild photographs [skip ci]"
+
+          # Elad may have committed again while this was running; rebase rather
+          # than fail, so an upload is never silently lost.
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
