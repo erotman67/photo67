@@ -1,4 +1,7 @@
-# Files that live in the repo but shouldn't be served as part of the website.
+# Files that live in the repo but must NOT be served as part of the website.
+# Wrangler uploads everything in the root by default — including .git — so
+# anything listed here is deliberately kept off the public site.
+.git
 .github
 scripts
 node_modules
