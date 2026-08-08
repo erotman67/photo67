@@ -55,7 +55,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Rebuild photographs [skip ci]"
+          git commit -m "Rebuild photographs"
 
           # Elad may have committed again while this was running; rebase rather
           # than fail, so an upload is never silently lost.
