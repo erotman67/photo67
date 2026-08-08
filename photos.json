@@ -33,6 +33,21 @@
   ],
   "photos": [
     {
+      "id": "car-img-1564",
+      "album": "car",
+      "file": "car/IMG_1564.jpeg",
+      "w": 1206,
+      "h": 756,
+      "widths": [
+        480,
+        900,
+        1206
+      ],
+      "title": "",
+      "date": "2026-08-08",
+      "camera": ""
+    },
+    {
       "id": "p02",
       "album": "water",
       "file": "water/blade-droplets.jpg",
