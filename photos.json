@@ -29,9 +29,74 @@
       "slug": "car",
       "title": "One Model Car",
       "summary": "A borrowed model, front and back, lit with one lamp on a plain surface."
+    },
+    {
+      "slug": "caesarea",
+      "title": "Caesarea",
+      "summary": ""
     }
   ],
   "photos": [
+    {
+      "id": "caesarea-img-1560",
+      "album": "caesarea",
+      "file": "caesarea/IMG_1560.jpeg",
+      "w": 1206,
+      "h": 779,
+      "widths": [
+        480,
+        900,
+        1206
+      ],
+      "title": "",
+      "date": "2026-08-08",
+      "camera": ""
+    },
+    {
+      "id": "caesarea-img-1561",
+      "album": "caesarea",
+      "file": "caesarea/IMG_1561.jpeg",
+      "w": 1206,
+      "h": 1560,
+      "widths": [
+        480,
+        900,
+        1206
+      ],
+      "title": "",
+      "date": "2026-08-08",
+      "camera": ""
+    },
+    {
+      "id": "caesarea-img-1562",
+      "album": "caesarea",
+      "file": "caesarea/IMG_1562.jpeg",
+      "w": 1206,
+      "h": 1789,
+      "widths": [
+        480,
+        900,
+        1206
+      ],
+      "title": "",
+      "date": "2026-08-08",
+      "camera": ""
+    },
+    {
+      "id": "caesarea-img-1563",
+      "album": "caesarea",
+      "file": "caesarea/IMG_1563.jpeg",
+      "w": 1206,
+      "h": 791,
+      "widths": [
+        480,
+        900,
+        1206
+      ],
+      "title": "",
+      "date": "2026-08-08",
+      "camera": ""
+    },
     {
       "id": "car-img-1564",
       "album": "car",
@@ -375,6 +440,37 @@
       ],
       "title": "Rear wing",
       "date": "2026-03-28",
+      "camera": ""
+    },
+    {
+      "id": "caesarea-89ab6347-e790-413b-aad4-921e191d9c39",
+      "album": "caesarea",
+      "file": "caesarea/89ab6347-e790-413b-aad4-921e191d9c39.jpeg",
+      "w": 1044,
+      "h": 1600,
+      "widths": [
+        480,
+        900,
+        1044
+      ],
+      "title": "",
+      "date": "",
+      "camera": ""
+    },
+    {
+      "id": "caesarea-bcda4e1a-b367-4a12-a2ba-f4cf55ecfbe0",
+      "album": "caesarea",
+      "file": "caesarea/bcda4e1a-b367-4a12-a2ba-f4cf55ecfbe0.jpeg",
+      "w": 1600,
+      "h": 1023,
+      "widths": [
+        480,
+        900,
+        1400,
+        1600
+      ],
+      "title": "",
+      "date": "",
       "camera": ""
     }
   ],
