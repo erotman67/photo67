@@ -38,6 +38,22 @@
   ],
   "photos": [
     {
+      "id": "caesarea-9893c1ae-bb6b-49da-8fa4-dfd665645808",
+      "album": "caesarea",
+      "file": "caesarea/9893c1ae-bb6b-49da-8fa4-dfd665645808.jpeg",
+      "w": 1537,
+      "h": 1023,
+      "widths": [
+        480,
+        900,
+        1400,
+        1537
+      ],
+      "title": "",
+      "date": "2026-08-16",
+      "camera": ""
+    },
+    {
       "id": "caesarea-img-1560",
       "album": "caesarea",
       "file": "caesarea/IMG_1560.jpeg",
